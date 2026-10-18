@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlnsth:="http://www.thymeleaf.org">
+
+<th:block th:insert="~{layoutsF/share :: head}"> </th:block>
+
+<body>
+    <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
+    <div class="container ">
+        <h1 class="text-center my-5">User Role Edit</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Role_Admin</td>
+                            <td>
+                                <a href="/add" class="btn btn-sm btn-warning"><i class="fa fa-add"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Role_Admin</td>
+                            <td>
+                                <a href="/add" class="btn btn-sm btn-danger"><i class="fa fa-remove"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <th:block th:insert="~{layouts/share :: script}"></th:block>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{layouts/share :: head}"> </th:block>
+
+<body>
+    <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
+    <div class="container ">
+        <h3 class="text-center my-5 ">Add New Role</h3>
+
+        <form action="/roles/add" method="post">
+
+            <div class="mb-3">
+                <label for="rolename" class="form-label">Role Name :</label>
+                <input required type="text" class="form-control rounded-0" id="rolename" placeholder="Enter rolename"
+                    name="rolename">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="/roles" class="btn btn-sm btn-primary">Cancel</a>
+                <button type="submit" class="btn btn-sm btn-primary">Add</button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+    <th:block th:insert="~{layouts/share :: script}"></th:block>
+
+</body>
+
+</html>

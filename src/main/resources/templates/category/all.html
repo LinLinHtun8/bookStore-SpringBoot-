@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{layouts/share :: head}"> </th:block>
+
+<body>
+    <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
+    <div class="container ">
+        <div class="d-flex justify-content-between my-5">
+            <h5 class="text-center ">All Categories</h5>
+            <a href="/cates/add" class="btn btn-primary btn-sm">
+                <i class="fa fa-add"></i>
+            </a>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div th:each="cate, status : ${cates}">
+                    <tr>
+                        <td th:text="${status.count}">1</td>
+                        <td th:text="${cate.id}">1</td>
+                        <td th:text="${cate.name}">Advanture</td>
+                        <td>
+                            <a th:href="@{cates/edit/{id} (id= ${cate.id})}" class="btn btn-sm btn-warning"><i
+                                    class="fa fa-edit"></i></a>
+                            <a th:href="@{cates/drop/{id} (id= ${cate.id})}" class="btn btn-sm btn-danger"><i
+                                    class="fa fa-trash"></i></a>
+                            <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                </div>
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <th:block th:insert="~{layouts/share :: script}"></th:block>
+
+</body>
+
+</html>
