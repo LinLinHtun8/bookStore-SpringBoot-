@@ -1,12 +1,18 @@
 <!doctype html>
-<html lang="en" xmlnsth:="http://www.thymeleaf.org">
+<html lang="en" xmln:th="http://www.thymeleaf.org">
 
-<th:block th:insert="~{layoutsF/share :: head}"> </th:block>
+<th:block th:insert="~{layouts/share :: head}"> </th:block>
 
 <body>
     <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
         <div class="container ">
-        <h1 class="text-center my-5">All books</h1>
+
+        <div class="d-flex justify-content-between my-5">
+                <h5 class="text-center ">All Users</h5>
+                <a href="/roles/add" class="btn btn-primary btn-sm">
+                    <i class="fa fa-add"></i>
+                </a>
+            </div>
 
         <table class="table table-bordered">
             <thead>
@@ -15,67 +21,28 @@
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Roles</th>
                     <th scope="col">Action</th>
                 </tr>
-            </thead>
-            <tbody>
+            </thead> 
+            <th:block th:each="user, status : ${users}">
+                <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
+                    <td th:text="${status.count}"> 1</td>
+                    <td th:text="${user.id}">3</td>
+                    <td th:text="${user.name}">Admin</td>
+                    <td th:text="${user.email}">admin@gmail.com</td>
                     <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
-                </tr><tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
+                        <th:block th:each=" role : ${user.roles}">
+                            <span th:text="${role.name}"></span> <br>
+                        </th:block>
+                    </td>
                     <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
-                </tr><tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
-                </tr><tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
-                </tr><tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
-                </tr><tr>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>Admin</td>
-                    <td>admin@gmail.com</td>
-                    <td>
-                        <a href="/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                        <a href="/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                        <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
+                        <a th:href="@{users/edit/{id} (id = ${user.id})}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                 </tr>
 
             </tbody>
+            </th:block>
         </table>
 
 

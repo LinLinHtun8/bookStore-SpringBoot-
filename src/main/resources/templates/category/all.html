@@ -28,11 +28,12 @@
                         <td th:text="${cate.id}">1</td>
                         <td th:text="${cate.name}">Advanture</td>
                         <td>
-                            <a th:href="@{cates/edit/{id} (id= ${cate.id})}" class="btn btn-sm btn-warning"><i
+                            <a href="/cates/edit/2111" class="btn btn-sm btn-warning"><i
                                     class="fa fa-edit"></i></a>
+                            <!-- <a th:href="@{cates/edit/{id} (id= ${cate.id})}" class="btn btn-sm btn-warning"><i
+                                    class="fa fa-edit"></i></a> -->
                             <a th:href="@{cates/drop/{id} (id= ${cate.id})}" class="btn btn-sm btn-danger"><i
                                     class="fa fa-trash"></i></a>
-                            <a href="/edit" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                 </div>

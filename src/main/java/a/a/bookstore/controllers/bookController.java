@@ -15,10 +15,8 @@ import a.a.bookstore.models.category;
 import a.a.bookstore.services.bookService;
 import a.a.bookstore.services.categoryServices;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import a.a.bookstore.utils.save;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("books")
@@ -91,6 +89,16 @@ public class bookController {
         bookService.drop(id);
         return "redirect:/books";
     }
+
+    @GetMapping("filler/{type}")
+    public String fillerByType(@PathVariable("type")  String type, Model  model) {
+        System.err.println("Category input is :"  + type);
+        category name = categoryServices.findByName(type);
+        List<book> books = bookService.getBookByCate(name);
+        model.addAttribute("books", books);
+        return "book/all";
+    }
+    
     
 
 }

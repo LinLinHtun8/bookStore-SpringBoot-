@@ -46,6 +46,10 @@ public class myUserDetails implements UserDetails {
         return user.getId();
     }
 
+    public appUser getUser(){
+        return user;
+    }
+
     
 
 }

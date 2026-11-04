@@ -4,7 +4,51 @@
 <th:block th:insert="~{layouts/share :: head}"> </th:block>
 
 <body>
-    <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
+        <nav class="container navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Book Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/books">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/roles">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/cates">Categories</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filler
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/books/filler/{type}  (type = 'Advanture')}">Advanture</a></li>
+                            <li><a class="dropdown-item" th:href="@{/books/filler/{type}  (type = 'Scifi')}">Sifi</a></li>
+                            <li><a class="dropdown-item" th:href="@{/books/filler/{type}  (type = 'Action')}">Action</a></li>
+                            <li><a class="dropdown-item" th:href="@{/books/filler/{type}  (type = 'Romance')}">Romance</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/categories">Logout</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+    </nav>
     <div class="container ">
         <div class="d-flex justify-content-between my-5">
             <h5 class="text-center ">All Roles</h5>
@@ -17,7 +61,7 @@
             <div th:each="book, status : ${books}">
                 <div class="col-md-3 mb-3">
                     <div class="card">
-                        <img th:src="@{imgs/{url} (url = ${book.coverImage})}" class="card-img-top" alt="...">
+                        <img th:src="@{/imgs/{url} (url = ${book.coverImage})}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${book.title}">One</h5>
                             <h6 th:text="${book.author}"> Writer - <span class="text-danger">Min Lu</span></h6>
@@ -31,19 +75,19 @@
                                     class="text-secondary">20000</span> kyats</p>
                             <p class="card-text" th:text="${book.stock}">Stock - <span>200</span></p>
 
-                            for customers
+                            <!-- for customers -->
                             <a href="#" class="btn btn-success btn-sm">
                                 Order Now
                                 <i class="fa-solid fa-cart-plus"></i>
                             </a>
 
                             <!-- for Admin -->
-                            <a th:href="@{books/edit/{id} (id = ${book.id})}" class="btn btn-warning btn-sm">
+                            <!-- <a th:href="@{books/edit/{id} (id = ${book.id})}" class="btn btn-warning btn-sm">
                                 <i class="fa fa-edit"></i>
                             </a>
                             <a th:href="@{books/drop/{id} (id = ${book.id})}" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
-                            </a>
+                            </a> -->
 
 
                         </div>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:insert="~{layouts/share :: head}"> </th:block>
+
+<body>
+    <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
+    <div class="container ">
+        <h1 class="text-center my-5">Error Page</h1>
+
+        <h2 th:text="${eMessage}" style="color: red; text-align: center;"></h2>
+        <h1 th:text="${eCode}" style="color: red; text-align: center;">401</h2>
+
+    </div>
+
+    <th:block th:insert="~{layouts/share :: script}"></th:block>
+
+</body>
+
+</html>

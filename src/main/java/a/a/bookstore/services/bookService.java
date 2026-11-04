@@ -2,15 +2,17 @@ package a.a.bookstore.services;
 
 import java.util.List;
 import java.util.ListResourceBundle;
+import java.util.Locale.Category;
 
 import org.springframework.stereotype.Service;
 
 import a.a.bookstore.models.book;
+import a.a.bookstore.models.category;
 import a.a.bookstore.repos.bookRepo;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@AllArgsConstructor 
 public class bookService {
 
     private final bookRepo bookRepo;
@@ -38,6 +40,12 @@ public class bookService {
     public void drop(Integer id) {
         book book = bookRepo.findById(id).orElse(null);
         bookRepo.delete(book);
+    }
+
+    public List<book> getBookByCate(category name) {
+
+        List<book> books = bookRepo.findAllByCategory(name);
+        return  books;
     }
 
 }

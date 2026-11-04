@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -30,6 +29,7 @@ public class categoryController {
         List<category> categories = categoryServices.all();
         model.addAttribute("cates", categories);
         return "category/all";
+
     }
 
     @GetMapping("/add")

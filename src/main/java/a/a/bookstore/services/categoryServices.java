@@ -6,6 +6,7 @@ import javax.management.RuntimeErrorException;
 
 import org.springframework.stereotype.Service;
 
+import a.a.bookstore.exceptionHandler.categoryNotFoundException;
 import a.a.bookstore.models.category;
 import a.a.bookstore.repos.categoryRepo;
 import lombok.AllArgsConstructor;
@@ -42,7 +43,7 @@ public class categoryServices {
 
     public void drop(Integer id) {
         category category = categoryRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Can't find This Category"));
+                .orElseThrow(() -> new categoryNotFoundException("Can't find This Category"));
 
         if (category != null) {
 
@@ -52,12 +53,12 @@ public class categoryServices {
 
     public category findById(Integer id) {
         category category = categoryRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Can't find the Category"));
+                .orElseThrow(() -> new categoryNotFoundException("Can't find the Category"));
         return category;
     }
 
     public category findByName(String name){
-        category category = categoryRepo.findByName(name).orElseThrow();
+        category category = categoryRepo.findByName(name).orElseThrow(()-> new RuntimeException("category not found"));
         return category;
     }
 
