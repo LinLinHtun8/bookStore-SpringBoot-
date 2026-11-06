@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @Controller
-@RequestMapping("/roles")
+@RequestMapping("admin/roles")
 @AllArgsConstructor
 public class roleController {
 
@@ -39,7 +39,7 @@ public class roleController {
     @PostMapping("/add")
     public String add(@RequestParam String rolename) {
         roleServices.add( rolename);        
-        return "redirect:/roles";
+        return "redirect:/admin/roles";
     }
 
     @GetMapping("/edit/{id}")
@@ -53,13 +53,13 @@ public class roleController {
     @PostMapping("/edit/{id}")
     public String edit(@RequestParam String rolename, @PathVariable Integer id) {
         roleServices.edit(id, rolename);        
-        return "redirect:/roles";
+        return "redirect:/admin/roles";
     }
 
     @GetMapping("/delete/{id}")
     public String getMethodName(@PathVariable Integer id) {
         roleServices.delete(id);    
-        return "redirect:/roles";
+        return "redirect:/admin/roles";
     }
     
     

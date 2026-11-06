@@ -4,29 +4,33 @@
 <th:block th:insert="~{layouts/share :: head}"> </th:block>
 
 <body>
-     <div class="container ">
+    <div class="container ">
         <h3 class="text-center my-5 ">User Register</h3>
 
-        <form action="/users/register" method="post">
+        <form action="/users/register" th:object="${user}" method="post">
 
 
 
             <div class="mb-3">
                 <label for="name" class="form-label">Title :</label>
-                <input required type="text" class="form-control rounded-0" id="name" placeholder="Enter Your Name"
-                    name="name">
+                <input type="text" class="form-control rounded-0" id="name" placeholder="Enter Your Name" name="name" th:field="*{name}">
+                <span th:if("${field.hasErrors('name')}") th:errors="*{name}" class="error">Error</span>
+
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email :</label>
-                <input required type="email" class="form-control rounded-0" id="email" placeholder="Enter Your email"
-                    name="email">
+                <input  type="email" class="form-control rounded-0" id="email" placeholder="Enter Your email"
+                    name="email" th:field="*{email}">
+                <span th:if("${field.hasErrors('email')}") th:errors="*{email}" class="error"></span>
+
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password :</label>
-                <input required type="password" class="form-control rounded-0" id="password" placeholder="*********"
-                    name="password">
+                <input  type="password" class="form-control rounded-0" id="password" placeholder="*********"
+                    name="password" th:field="*{password}">
+                <span th:if("${field.hasErrors('password')}") th:errors="*{password}" class="error"></span>
             </div>
 
 
@@ -39,8 +43,8 @@
 
     </div>
 
-<th:block th:insert="~{layouts/share :: script}"></th:block>
-    
+    <th:block th:insert="~{layouts/share :: script}"></th:block>
+
 </body>
 
 </html>

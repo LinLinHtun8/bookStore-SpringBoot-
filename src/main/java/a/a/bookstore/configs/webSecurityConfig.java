@@ -51,8 +51,13 @@ public class webSecurityConfig {
         })
         .authorizeHttpRequests(register  ->{
             register.requestMatchers("/users/login", "/users/register", "/css/**", "/js/**", "/imgs/**").permitAll();
+            register.requestMatchers("/admin/**").hasRole("ADMIN");
+            //Can be used in suitation when we need to access two roles or more
+            register.requestMatchers("manager/**").hasAnyRole("ADMIN", "MANAGER");
             register.anyRequest().authenticated();
         })
+
+
         
         .build();
 

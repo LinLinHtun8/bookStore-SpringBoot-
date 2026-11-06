@@ -7,7 +7,7 @@
     <th:block th:insert="~{layouts/nav :: nav}"> </th:block>
 
     <div class="container">
-        <form th:action="@{/roles/edit/{id} (id = ${role.id})}" method="post">
+        <form th:action="@{/admin/roles/edit/{id} (id = ${role.id})}" method="post">
 
             <div class="mb-3">
                 <label for="rolename" class="form-label">Role Name :</label>
@@ -15,7 +15,7 @@
                     name="rolename" th:value="${role.name}">
             </div>
             <div class="d-flex justify-content-between">
-                <a href="/roles" class="btn btn-sm btn-primary">Cancel</a>
+                <a href="/admin/roles" class="btn btn-sm btn-primary">Cancel</a>
                 <button type="submit" class="btn btn-sm btn-primary">Save</button>
             </div>
 

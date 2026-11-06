@@ -9,7 +9,7 @@
         <div class="container ">
             <div class="d-flex justify-content-between my-5">
                 <h5 class="text-center ">All Roles</h5>
-                <a href="/roles/add" class="btn btn-primary btn-sm">
+                <a href="/admin/roles/add" class="btn btn-primary btn-sm">
                     <i class="fa fa-add"></i>
                 </a>
             </div>
@@ -29,9 +29,8 @@
                             <td th:text="${role.id}">roleid</td>
                             <td th:text="${role.name}">rolename</td>
                             <td>
-                                <a th:href="@{roles/edit/{id}   (id = ${role.id})}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                <a th:href="@{roles/delete/{id} (id = ${role.id})}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                <a href="#" class="btn btn-sm btn-success"><i class="fa fa-trash"></i></a>
+                                <a th:href="@{/admin/roles/edit/{id}   (id = ${role.id})}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                <a th:href="@{/admin/roles/delete/{id} (id = ${role.id})}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
 
                     </tbody>
